@@ -62,12 +62,12 @@ samplers_array_all = np.array(samplers_all)
 num_datapoints = 1000
 
 flip_fraction = [0,0.002,0.004,0.006,0.008,0.01]
-num_informative = [3,4]
+num_informative = [6,7,8]
 class_separation = np.arange(0.30, 2.0, 0.35).tolist()
 num_clusters = [1,2,3]
 
 random_seed = 0 
-num_features = 5
+num_features = 8
 num_classes = 2
 num_repeated = 0
 num_redundant = 0
@@ -83,10 +83,10 @@ data2 = []
 
 
 
-X_train_datasets_5d = []
-y_train_datasets_5d = []
-X_test_datasets_5d = []
-y_test_datasets_5d = []
+X_train_datasets_8d = []
+y_train_datasets_8d = []
+X_test_datasets_8d = []
+y_test_datasets_8d = []
 
 
 # X_train_datasets_5d_resampled = np.empty([8415, 21, 1500, 5])
@@ -95,10 +95,10 @@ y_test_datasets_5d = []
 # y_test_datasets_5d_resampled = np.empty([8415, 21, 1000, 1])
 
 
-X_train_datasets_5d_resampled = []
-y_train_datasets_5d_resampled = []
-X_test_datasets_5d_resampled = []
-y_test_datasets_5d_resampled = []
+X_train_datasets_8d_resampled = []
+y_train_datasets_8d_resampled = []
+X_test_datasets_8d_resampled = []
+y_test_datasets_8d_resampled = []
 
 
 c = 0
@@ -125,18 +125,18 @@ for w in weights:
                         ytrain, ytest = y[train_index].reshape(-1,1), y[test_index].reshape(-1,1)
                         
                         
-                        X_train_datasets_5d_resampled.append(Xtrain)
-                        y_train_datasets_5d_resampled.append(ytrain)
-                        X_test_datasets_5d_resampled.append(Xtest)
-                        y_test_datasets_5d_resampled.append(ytest)
+                        X_train_datasets_8d_resampled.append(Xtrain)
+                        y_train_datasets_8d_resampled.append(ytrain)
+                        X_test_datasets_8d_resampled.append(Xtest)
+                        y_test_datasets_8d_resampled.append(ytest)
                         
                         
                         for i in range(len(samplers_array_all)):
                             X_resampled, y_resampled = samplers_array_all[i].fit_sample(Xtrain, ytrain)
-                            X_train_datasets_5d_resampled.append(X_resampled)
-                            y_train_datasets_5d_resampled.append(y_resampled)
-                            X_test_datasets_5d_resampled.append(Xtest)
-                            y_test_datasets_5d_resampled.append(ytest)
+                            X_train_datasets_8d_resampled.append(X_resampled)
+                            y_train_datasets_8d_resampled.append(y_resampled)
+                            X_test_datasets_8d_resampled.append(Xtest)
+                            y_test_datasets_8d_resampled.append(ytest)
                             
                             
                     c = c+1
@@ -154,7 +154,7 @@ for w in weights:
 #         break
                         
 
-save('../Data_metrics_5d_datasets_X_train.npy',X_train_datasets_5d_resampled)
-save('../Data_metrics_5d_datasets_X_test.npy',X_test_datasets_5d_resampled)
-save('../Data_metrics_5d_datasets_y_train.npy',y_train_datasets_5d_resampled)
-save('../Data_metrics_5d_datasets_y_test.npy',y_test_datasets_5d_resampled)
+save('../Data_metrics_8d_datasets_X_train.npy',X_train_datasets_8d_resampled)
+save('../Data_metrics_8d_datasets_X_test.npy',X_test_datasets_8d_resampled)
+save('../Data_metrics_8d_datasets_y_train.npy',y_train_datasets_8d_resampled)
+save('../Data_metrics_8d_datasets_y_test.npy',y_test_datasets_8d_resampled)
