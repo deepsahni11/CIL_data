@@ -154,7 +154,7 @@ for w in weights:
 #         break
                         
 
-save('../datasets_10d_X_train_resampled.npy',X_train_datasets_10d_resampled)
-save('../datasets_10d_X_test_resampled.npy',X_test_datasets_10d_resampled)
-save('../datasets_10d_y_train_resampled.npy',y_train_datasets_10d_resampled)
-save('../datasets_10d_y_test_resampled.npy',y_test_datasets_10d_resampled)
+np.save('../datasets_10d_X_train_resampled.npy',X_train_datasets_10d_resampled)
+np.save('../datasets_10d_X_test_resampled.npy',X_test_datasets_10d_resampled)
+np.save('../datasets_10d_y_train_resampled.npy',y_train_datasets_10d_resampled)
+np.save('../datasets_10d_y_test_resampled.npy',y_test_datasets_10d_resampled)
