@@ -17,6 +17,7 @@ from numpy import load
 
 
 
+
 seed = 0
 samplers_all = [
     # Oversampling methods:
@@ -29,16 +30,16 @@ samplers_all = [
     # Undersampling methods:
     RandomUnderSampler(random_state=seed),
     ClusterCentroids(random_state=seed),
-    NearMiss(version=1, random_state=seed),
-    NearMiss(version=2, random_state=seed),
-    NearMiss(version=3, random_state=seed),
-    TomekLinks(random_state=seed),
-    EditedNearestNeighbours(random_state=seed),
-    RepeatedEditedNearestNeighbours(random_state=seed),
-    AllKNN(random_state=seed),
+    NearMiss(version=1),
+    NearMiss(version=2),
+    NearMiss(version=3),
+    TomekLinks(),
+    EditedNearestNeighbours(),
+    RepeatedEditedNearestNeighbours(),
+    AllKNN(),
     CondensedNearestNeighbour(random_state=seed),
     OneSidedSelection(random_state=seed),
-    NeighbourhoodCleaningRule(random_state=seed),
+    NeighbourhoodCleaningRule(),
     InstanceHardnessThreshold(random_state=seed),
     
     
@@ -48,6 +49,8 @@ samplers_all = [
 
 ]
 samplers_array_all = np.array(samplers_all)
+
+
 
 
 
