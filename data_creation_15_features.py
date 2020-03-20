@@ -125,7 +125,7 @@ for w in weights:
                     sss.get_n_splits(X, y)
                     for train_index, test_index in sss.split(X, y):
                         Xtrain, Xtest = X[train_index], X[test_index]
-                        ytrain, ytest = y[train_index].reshape(-1,1), y[test_index].reshape(-1,1)
+                        ytrain, ytest = y[train_index], y[test_index]
                         
                         
                         X_train_datasets_15d_resampled.append(Xtrain)
@@ -135,7 +135,10 @@ for w in weights:
                         
                         
                         for i in range(len(samplers_array_all)):
-                            X_resampled, y_resampled = samplers_array_all[i].fit_sample(Xtrain, ytrain)
+                            try:
+                                X_resampled, y_resampled = samplers_array_all[i].fit_sample(Xtrain, ytrain)
+                            catch:
+                                X_resampled, y_resampled = Xtrain, ytrain
                             X_train_datasets_15d_resampled.append(X_resampled)
                             y_train_datasets_15d_resampled.append(y_resampled)
                             X_test_datasets_15d_resampled.append(Xtest)
